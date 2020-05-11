@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
+// Components
+import NavBar from './components/layout/NavBar';
+import Main from './components/Main';
 
 function App() {
   return (
     <div className="App">
-      <h1>
-        My Portfolio Website
-      </h1>
+      <NavBar />
+      <Main />
     </div>
   );
 }
