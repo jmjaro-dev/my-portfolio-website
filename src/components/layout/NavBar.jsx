@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// font-awesome
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // material-ui/styles
 import {  makeStyles } from '@material-ui/core/styles';
 // material-ui/core
@@ -13,9 +11,11 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText, 
+  ListItemText,
+  Link,
   Typography, 
-  IconButton 
+  IconButton,
+  useScrollTrigger 
 } from '@material-ui/core';
 // material-ui/icons
 import MenuIcon from '@material-ui/icons/Menu';
@@ -23,10 +23,8 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InfoIcon from '@material-ui/icons/Info';
 import CodeIcon from '@material-ui/icons/Code';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-// import GitHubIcon from '@material-ui/icons/GitHub';
 // material-ui/colors
-import { lightBlue } from '@material-ui/core/colors';
-
+import { lightBlue, grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,16 +38,21 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar: {
     backgroundColor: lightBlue[900]
-    // background: "linear-gradient(90deg, rgba(2,9,15,1) 0%, rgba(0,73,130,1) 64%)"
   },
   icon: {
     marginRight: theme.spacing(3)
   },
+  links: {
+    color: grey[800],
+    textDecoration: "none",
+    "&:hover": {
+      color: lightBlue[800],
+      textDecoration: "none",
+      transition: "0.3s ease-in"
+    }
+  },
   list: {
     width: 320,
-  },
-  appTitle: {
-
   },
   appSideBarIcon: {
     marginRight: theme.spacing(3),
@@ -65,9 +68,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const NavBar = () => {
-  const [state, setState] = useState(false);
+function ElevationScroll(props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target: window ? window() : undefined,
+  });
 
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  });
+}
+
+const NavBar = props => {
+  const [state, setState] = useState(false);
   const classes = useStyles();
 
   const toggleDrawer = (open) => (event) => {
@@ -96,37 +111,53 @@ const NavBar = () => {
       </List>
       <Divider />
       <List>
-        <ListItem button>
+        <ListItem>
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <InfoIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText primary="About Me"/>
+          <ListItemText>
+            <Link href="#aboutme" className={classes.links}>
+              About Me
+            </Link>
+          </ListItemText>
         </ListItem>
-        <ListItem button>
+        <ListItem>
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <CodeIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText primary="Technologies"/>
+          <ListItemText>
+            <Link href="#technologies" className={classes.links}>
+              Technologies
+            </Link>
+          </ListItemText>
         </ListItem>
-        <ListItem button>
+        <ListItem>
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <DashboardIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText primary="My Works"/>
+          <ListItemText>
+            <Link href="#projects" className={classes.links}>
+              Projects
+            </Link>
+          </ListItemText>
         </ListItem>
-        <ListItem button>
+        <ListItem>
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <MailOutlineIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText primary="Contact Me"/>
+          <ListItemText>
+            <Link href="#contactme" className={classes.links}>
+              Contact Me
+            </Link>
+          </ListItemText>
         </ListItem>
       </List>
     </div>
@@ -134,19 +165,21 @@ const NavBar = () => {
   
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.navBar}>
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            JMJ | Web Developer
-          </Typography>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-            <MenuIcon />
-          </IconButton>
-          <Drawer anchor="left" open={state} onClose={toggleDrawer(false)}>
-            {list()}
-          </Drawer>
-        </Toolbar>
-      </AppBar>
+      <ElevationScroll {...props} >
+        <AppBar className={classes.navBar}>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              JMJ | Web Developer
+            </Typography>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+              <MenuIcon />
+            </IconButton>
+            <Drawer anchor="right" open={state} onClose={toggleDrawer(false)}>
+              {list()}
+            </Drawer>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
     </div>
   )
 }

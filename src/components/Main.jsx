@@ -1,16 +1,31 @@
 import React from 'react';
-import Divider from '@material-ui/core/Divider';
+import { Container, Divider } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 // Components
 import About from './about/About';
 import Technologies from './technologies/Technologies';
+import Projects from './projects/Projects';
+import Contact from './contact/Contact';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1
+  }
+}));
 
 const Main = () => {
+  const classes = useStyles();
+
   return (
-    <div>
+    <Container fixed className={classes.root}>
       <About />
       <Divider />
       <Technologies />
-    </div>
+      <Divider />
+      <Projects />
+      <Divider />
+      <Contact />
+    </Container>
   )
 }
 

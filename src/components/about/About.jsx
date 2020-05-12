@@ -11,11 +11,27 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     paddingTop: "1em"
   },
+  headerContainer: {
+    paddingTop: "6em !important",
+  },
   headerText: {
     fontFamily: "Poppins",
     textAlign: "center",
     fontWeight: 600,
-    padding: "1em 0"
+    margin: 0
+  },
+  underline: {
+    textAlign: "center",
+    height: "50px",
+    padding: "0 !important",
+    margin: "0 !important"
+  },
+  lineCenter: {
+    display: "inline-block",
+    borderTop: "4px solid",
+    borderColor: lightBlue[900],
+    height: "30px",
+    width: "55px"
   },
   imgContainer: {
     margin: "0 auto",
@@ -73,10 +89,14 @@ const About = () => {
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="flex-start">
         {/* Header */}
-        <Grid item xs={12} >
+        <Grid item xs={12} className={classes.headerContainer} id="aboutme">
           <Typography variant="h4" className={classes.headerText}>
             About Me
           </Typography>
+        </Grid>
+        
+        <Grid item xs={12} className={classes.underline}>
+          <span className={classes.lineCenter}></span>
         </Grid>
 
         {/* Photo */}
