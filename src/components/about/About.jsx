@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Card, Box, CardMedia, Typography } from '@material-ui/core';
 import { lightBlue, grey }  from '@material-ui/core/colors';
 // image
 import photo from '../../assets/img/photo.jpg';
+// Page Animations
+import about from '../animation/about';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,15 +57,17 @@ const useStyles = makeStyles((theme) => ({
     color: grey[500],
     fontFamily: "Poppins",
     fontWeight: 500,
+    fontSize: '1.2em',
     "& span": {
-      color: grey[800],
-      fontSize: '1.2em'
+      color: grey[800]
     }
   },
   introName: {
     color: lightBlue[900],
     fontFamily: "Poppins",
     fontWeight: 600,
+    fontSize: "1.43em",
+    lineHeight: "1.3em",
     paddingTop: "0.8em"
   },
   introTitle: {
@@ -78,30 +82,35 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: "1em",
     paddingTop: "1em",
-    lineHeight: "1.8em"
+    lineHeight: "1.8em",
+    textAlign: "justify"
   }
 }));
 
 const About = () => {
   const classes = useStyles();
 
+  useEffect(() => {
+    about();
+  }, []);
+  
   return (
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="flex-start">
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer} id="aboutme">
-          <Typography variant="h4" className={classes.headerText}>
+          <Typography variant="h4" className={classes.headerText} id="aboutHeader">
             About Me
           </Typography>
         </Grid>
         
-        <Grid item xs={12} className={classes.underline}>
+        <Grid item xs={12} className={classes.underline} id="aboutLine">
           <span className={classes.lineCenter}></span>
         </Grid>
 
         {/* Photo */}
         <Grid item xs={12} sm={4} md={5} className={classes.imgContainer} >
-          <Box boxShadow={3} className={classes.roundContainer}>
+          <Box boxShadow={3} className={classes.roundContainer} id="mypic">
             <Card className={classes.roundContainer}>
               <CardMedia component="img" image={photo} className={classes.img}/>
             </Card>
@@ -112,18 +121,18 @@ const About = () => {
         <Grid item xs={12} sm={8} md={7}>
           <Box className={classes.introContainer}>
             {/* Hello */}
-            <Typography variant="body1" className={classes.introText}>
+            <Typography variant="body1" gutterBottom className={classes.introText} id="introText">
               <span> Hello</span>, I am
             </Typography>
             {/* Name */}
-            <Typography variant="h5" className={classes.introName}>
+            <Typography variant="h5" className={classes.introName} id="introName">
               Jerome Mico S. Jaropojop
             </Typography>
             {/* Title */}
-            <Typography variant="subtitle1" className={classes.introTitle}>
+            <Typography variant="subtitle1" gutterBottom className={classes.introTitle} id="introTitle">
               Web Developer
             </Typography>
-            <Typography variant="body1" className={classes.introDescription}>
+            <Typography variant="body1" className={classes.introDescription} id="introDesc">
             I'm a self-taught Web Developer. I can do both front-end & back-end development. I'm goal-oriented and self-motivated seeking for a position that utilizes my knowledge and skills in an environment that encourages innovative thinking and professional growth.
             </Typography>
           </Box>

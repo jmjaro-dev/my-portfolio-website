@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, Card, CardMedia, CardContent, Typography } from '@material-ui/core';
@@ -13,6 +13,8 @@ import MongoDBLogo from '../../assets/logos/mongodb.png';
 import ExpressLogo from '../../assets/logos/express-logo.png';
 import ReactJSLogo from '../../assets/logos/react-logo.png';
 import NodeJSLogo from '../../assets/logos/node-logo.png';
+// Page Animations
+import technologies from '../animation/technologies';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,32 +75,36 @@ const useStyles = makeStyles((theme) => ({
 const Technologies = () => {
   const classes = useStyles();
 
+  useEffect(() => {
+    technologies();
+  });
+
   return (
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="flex-start">
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer}>
-          <Typography variant="h4" className={classes.headerText}>
+          <Typography variant="h4" className={classes.headerText} id="techHeader">
             Technologies
           </Typography>
           <div id="technologies" className={classes.hiddenAnchor}></div>
         </Grid>
         
-        <Grid item xs={12} className={classes.underline}>
+        <Grid item xs={12} className={classes.underline} id="techLine">
           <span className={classes.lineCenter}></span>
         </Grid>
 
         {/* Languages */}
         <Grid item xs={12}>
-          <Typography variant="h6" className={classes.subHeader}>
+          <Typography variant="h6" className={classes.subHeader} id="languagesHeader">
             Languages
           </Typography>
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
-              <CardMedia component="img" image={HTML5Logo} className={classes.img}/>
+              <CardMedia component="img" image={HTML5Logo} className={classes.img} />
               <CardContent className={classes.logoLabel}>
                 <Typography variant="subtitle1">
                   HTML5
@@ -109,7 +115,7 @@ const Technologies = () => {
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia component="img" image={CSSLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
@@ -122,7 +128,7 @@ const Technologies = () => {
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia component="img" image={JSLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
@@ -135,7 +141,7 @@ const Technologies = () => {
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia component="img" image={PHPLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
@@ -149,13 +155,13 @@ const Technologies = () => {
 
         {/* CSS Preprocessor */}
         <Grid item xs={12}>
-          <Typography variant="h6" className={classes.subHeader}>
+          <Typography variant="h6" className={classes.subHeader} id="CSSHeader">
             CSS Preproccesor
           </Typography>
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia component="img" image={SASSLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
@@ -169,13 +175,13 @@ const Technologies = () => {
 
         {/* Tech Stack */}
         <Grid item xs={12}>
-          <Typography variant="h6" className={classes.subHeader}>
+          <Typography variant="h6" className={classes.subHeader} id="stackHeader">
             Tech Stack
           </Typography>
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia component="img" image={MongoDBLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
@@ -188,7 +194,7 @@ const Technologies = () => {
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia className={classes.img}> 
                 <img src={ExpressLogo} height="21px" alt="Express Logo" style={{ marginTop: "45px" }} />
@@ -203,7 +209,7 @@ const Technologies = () => {
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia component="img" image={ReactJSLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
@@ -216,7 +222,7 @@ const Technologies = () => {
         </Grid>
 
         <Grid item xs={6} sm={4} md={2}>
-          <Box boxShadow={3}>
+          <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
               <CardMedia className={classes.img}> 
                 <img src={NodeJSLogo} height="28px" alt="Node JS Logo" style={{ marginTop: "35px" }} />

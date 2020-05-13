@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, Card, CardMedia, CardContent, Chip, Typography } from '@material-ui/core';
 import { lightBlue, grey }  from '@material-ui/core/colors';
 // Projects Info
 import { projectsData } from './projectsData';
+// Page Animations
+import projects from '../animation/projects';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,26 +90,30 @@ const useStyles = makeStyles((theme) => ({
 
 const Projects = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    projects();
+  });
   
   return (
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.container}>
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer}>
-          <Typography variant="h4" className={classes.headerText}>
+          <Typography variant="h4" className={classes.headerText} id="projectsHeader">
             Projects
           </Typography>
           <div id="projects" className={classes.hiddenAnchor}></div>
         </Grid>
         
-        <Grid item xs={12} className={classes.underline}>
+        <Grid item xs={12} className={classes.underline} id="projectsLine">
           <span className={classes.lineCenter}></span>
         </Grid>
         
         {/* Projects */}
         <Grid container spacing={2} >
           {projectsData.map(data => (
-            <Grid item xs={12} sm={12} md={6} key={data.title}>
+            <Grid item xs={12} sm={12} md={6} key={data.title} className="projects">
               <Card className={classes.logoContainer} variant="outlined">
                 <CardMedia component="img" image={data.img} className={classes.img}/>
                 <CardContent className={classes.logoLabel}>
