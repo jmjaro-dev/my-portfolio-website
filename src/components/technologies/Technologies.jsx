@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+// react-scroll
+import { Element } from "react-scroll";
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, Card, CardMedia, CardContent, Typography } from '@material-ui/core';
@@ -84,10 +86,11 @@ const Technologies = () => {
       <Grid container spacing={3} direction="row" justify="center" alignItems="flex-start">
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer}>
-          <Typography variant="h4" className={classes.headerText} id="techHeader">
-            Technologies
-          </Typography>
-          <div id="technologies" className={classes.hiddenAnchor}></div>
+          <Element name="technologies">
+            <Typography variant="h4" className={classes.headerText} id="techHeader">
+              Technologies
+            </Typography>
+          </Element>
         </Grid>
         
         <Grid item xs={12} className={classes.underline} id="techLine">

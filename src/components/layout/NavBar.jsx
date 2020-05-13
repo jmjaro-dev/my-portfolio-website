@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// react-scroll
+import { Link } from "react-scroll";
 // material-ui/styles
 import {  makeStyles } from '@material-ui/core/styles';
 // material-ui/core
@@ -12,7 +14,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Link,
   Typography, 
   IconButton,
   useScrollTrigger 
@@ -45,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
   links: {
     color: grey[800],
     textDecoration: "none",
+    "&.active": {
+      backGroundColor: lightBlue[800],
+      textDecoration: "none",
+      transition: "0.3s ease-in"
+    },
     "&:hover": {
       color: lightBlue[800],
       textDecoration: "none",
@@ -68,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function ElevationScroll(props) {
+const ElevationScroll = props => {
   const { children, window } = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -84,6 +90,29 @@ function ElevationScroll(props) {
 const NavBar = props => {
   const [state, setState] = useState(false);
   const classes = useStyles();
+
+  const ListItemLink = props => {
+
+    const closeDrawer = () => {
+      setState(false);
+    };
+  
+    return (
+      <Link
+        activeClass="active"
+        to={props.href}
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration= {1000}
+        onClick={closeDrawer}
+        className={classes.links}
+        {...props}
+      >
+        <ListItem {...props}/>
+      </Link>
+    );
+  }
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -111,54 +140,46 @@ const NavBar = props => {
       </List>
       <Divider />
       <List>
-        <ListItem>
+        <ListItemLink href="aboutme" >
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <InfoIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText>
-            <Link href="#aboutme" className={classes.links}>
-              About Me
-            </Link>
+          <ListItemText className={classes.links}>
+            About Me
           </ListItemText>
-        </ListItem>
-        <ListItem>
+        </ListItemLink>
+        <ListItemLink href="technologies" >
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <CodeIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText>
-            <Link href="#technologies" className={classes.links}>
-              Technologies
-            </Link>
+          <ListItemText className={classes.links}>
+            Technologies
           </ListItemText>
-        </ListItem>
-        <ListItem>
+        </ListItemLink>
+        <ListItemLink href="projects" >
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <DashboardIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText>
-            <Link href="#projects" className={classes.links}>
-              Projects
-            </Link>
+          <ListItemText className={classes.links}>
+            Projects
           </ListItemText>
-        </ListItem>
-        <ListItem>
+        </ListItemLink>
+        <ListItemLink href="contactme" >
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
               <MailOutlineIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText>
-            <Link href="#contactme" className={classes.links}>
-              Contact Me
-            </Link>
+          <ListItemText className={classes.links}>
+            Contact Me
           </ListItemText>
-        </ListItem>
+        </ListItemLink>
       </List>
     </div>
   )

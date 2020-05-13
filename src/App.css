@@ -8,3 +8,7 @@
 body {
   font-family: 'Poppins', 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+a.active > li {
+  background-color: #ddd;
+}
