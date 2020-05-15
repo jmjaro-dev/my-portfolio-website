@@ -12,9 +12,17 @@ import JSLogo from '../../assets/logos/javascript-logo.png';
 import PHPLogo from '../../assets/logos/php-logo.png';
 import SASSLogo from '../../assets/logos/sass-logo.png';
 import MongoDBLogo from '../../assets/logos/mongodb.png';
+import FirebaseLogo from '../../assets/logos/firebase-logo.png';
+import MySQLLogo from '../../assets/logos/mysql-logo.png';
+import PostgreSQLLogo from '../../assets/logos/postgresql-logo.png';
 import ExpressLogo from '../../assets/logos/express-logo.png';
 import ReactJSLogo from '../../assets/logos/react-logo.png';
 import NodeJSLogo from '../../assets/logos/node-logo.png';
+import MUILogo from '../../assets/logos/material-ui-logo.png';
+import MaterializeCSSLogo from '../../assets/logos/materializecss-logo.png';
+import TailwindCSSLogo from '../../assets/logos/tailwind-logo.png';
+import BootstrapLogo from '../../assets/logos/bootstrap-logo.png';
+
 // Page Animations
 import technologies from '../animation/technologies';
 
@@ -63,6 +71,12 @@ const useStyles = makeStyles((theme) => ({
     padding: "1em 1em",
     width: 130,
     height: 130
+  },
+  img1: {
+    margin: "0 auto",
+    padding: "1em 1em",
+    width: 100,
+    height: 130
   }, 
   hiddenAnchor: {
     position: "relative",
@@ -97,10 +111,10 @@ const Technologies = () => {
           <span className={classes.lineCenter}></span>
         </Grid>
 
-        {/* Languages */}
+        {/* Core Languages */}
         <Grid item xs={12}>
           <Typography variant="h6" className={classes.subHeader} id="languagesHeader">
-            Languages
+            Core Languages
           </Typography>
         </Grid>
 
@@ -176,6 +190,150 @@ const Technologies = () => {
           </Box>
         </Grid>
 
+        {/* Front-end Frameworks or Libraries */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="frontEndHeader">
+            Front-end Framework/Library
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={ReactJSLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  React JS
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid> 
+
+        {/* Back-end Languages */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="backEndHeader">
+            Back-end Languages
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={MongoDBLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  MongoDB
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={FirebaseLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Firebase
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia className={classes.img}> 
+                <img src={MySQLLogo} height="65px" alt="MySQL Logo" style={{ marginTop: "25px" }} />
+              </CardMedia>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  MySQL
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={PostgreSQLLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  PostgreSQL
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        {/* CSS Frameworks */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="cssFrameworkHeader">
+            CSS Frameworks
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={MUILogo} className={classes.img} />
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Material-UI
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia className={classes.img}> 
+                <img src={MaterializeCSSLogo} height="50px" alt="Materialize CSS Logo" style={{ marginTop: "25px" }} />
+              </CardMedia>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  MaterializeCSS
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia className={classes.img}> 
+                <img src={TailwindCSSLogo} height="45px" alt="Tailwind CSS Logo" style={{ marginTop: "30px", marginLeft: "15px"}} />
+              </CardMedia>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Tailwind
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={BootstrapLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Bootstrap
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid> 
+
         {/* Tech Stack */}
         <Grid item xs={12}>
           <Typography variant="h6" className={classes.subHeader} id="stackHeader">
@@ -238,6 +396,7 @@ const Technologies = () => {
             </Card>
           </Box>
         </Grid>
+
         <Grid item xs={12} className={classes.gutter} />
       </Grid>
     </Container>

@@ -55,6 +55,9 @@ const technologies = () => {
   sr.reveal("#languagesHeader", subHeader);
   sr.reveal("#CSSHeader", subHeader);
   sr.reveal("#stackHeader", subHeader);
+  sr.reveal("#frontEndHeader", subHeader);
+  sr.reveal("#cssFrameworkHeader", subHeader);
+  sr.reveal("#backEndHeader", subHeader);
   sr.reveal(".items", items);
 
 }

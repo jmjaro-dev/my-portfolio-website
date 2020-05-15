@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // react-scroll
 import { Element } from "react-scroll";
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Box, Card, CardMedia, CardContent, Chip, Typography } from '@material-ui/core';
+import { Container, Grid, Box, Card, CardActionArea, CardMedia, CardContent, Chip, Typography } from '@material-ui/core';
 import { lightBlue, grey }  from '@material-ui/core/colors';
 // Projects Info
 import { projectsData } from './projectsData';
 // Page Animations
 import projects from '../animation/projects';
+// imgModal
+import ImgModal from '../layout/ImgModal'; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     height: "auto"
+  },
+  imgModal: {
+    position: 'absolute',
+    top: 50,
+    left: 50,
+    transform: 'translate(-50, -50)'
   },
   links: {
     fontFamily: "Poppins",
@@ -80,10 +88,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "0.9em",
     textAlign: "justify",
   },
-  hiddenAnchor: {
-    position: "relative",
-    top: "-120px"
-  },
   gutter: {
     height: "1em",
     marginBottom: "1em"
@@ -92,14 +96,28 @@ const useStyles = makeStyles((theme) => ({
 
 const Projects = () => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const [imgUrl, setImageUrl] = useState(null);
 
   useEffect(() => {
     projects();
   });
   
+  const handleOpen = e => {
+    e.preventDefault();
+    setImageUrl(e.target.src);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.container}>
+        <ImgModal url={imgUrl} open={open} handleClose={handleClose} className={classes.imgModal} />
+
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer}>
           <Element name="projects">
@@ -107,8 +125,6 @@ const Projects = () => {
               Projects
             </Typography>
           </Element>
-
-          {/* <div id="projects" className={classes.hiddenAnchor}></div> */}
         </Grid>
         
         <Grid item xs={12} className={classes.underline} id="projectsLine">
@@ -120,7 +136,9 @@ const Projects = () => {
           {projectsData.map(data => (
             <Grid item xs={12} sm={12} md={6} key={data.title} className="projects">
               <Card className={classes.logoContainer} variant="outlined">
-                <CardMedia component="img" image={data.img} className={classes.img}/>
+                <CardActionArea onClick={handleOpen}>
+                  <CardMedia component="img" image={data.img} className={classes.img}/>
+                </CardActionArea>
                 <CardContent className={classes.logoLabel}>
                   <Typography variant="subtitle1" className={classes.subHeader}>
                     <a href={data.url} className={classes.links} target="_blank" rel="noopener noreferrer">
