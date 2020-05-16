@@ -6,6 +6,9 @@ import About from './about/About';
 import Technologies from './technologies/Technologies';
 import Projects from './projects/Projects';
 import Contact from './contact/Contact';
+import Footer from './layout/Footer';
+// react-scroll
+import { Element } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,15 +20,28 @@ const Main = () => {
   const classes = useStyles();
 
   return (
-    <Container fixed className={classes.root}>
-      <About />
-      <Divider />
-      <Technologies />
-      <Divider />
-      <Projects />
-      <Divider />
-      <Contact />
-    </Container>
+    <div>
+      <Container fixed className={classes.root}>
+        <Element name="aboutme">
+          <About />
+        </Element>
+        <Divider />
+        <Element name="technologies">
+          <Technologies />
+        </Element>
+        <Divider />
+        <Element name="projects">
+          <Projects />
+        </Element>
+        <Divider />
+      </Container>
+      <Element name="contactme">
+        <Container>
+          <Contact />
+        </Container>
+        <Footer />
+      </Element>  
+    </div>
   )
 }
 

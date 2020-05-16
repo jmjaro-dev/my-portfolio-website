@@ -6,16 +6,18 @@ import {  makeStyles } from '@material-ui/core/styles';
 // material-ui/core
 import { 
   AppBar,
-  Avatar, 
-  Toolbar, 
-  Drawer, 
-  Divider, 
+  Avatar,
+  Button,
+  Container, 
+  Drawer,
+  Hidden,
+  IconButton, 
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Toolbar,
   Typography, 
-  IconButton,
   useScrollTrigger 
 } from '@material-ui/core';
 // material-ui/icons
@@ -40,6 +42,15 @@ const useStyles = makeStyles((theme) => ({
   navBar: {
     backgroundColor: lightBlue[900]
   },
+  navLinks: {
+    color: "#fff",
+    textDecoration: "none",
+    "&:hover": {
+      color: lightBlue["A200"],
+      textDecoration: "none",
+      transition: "0.3s ease-in"
+    }
+  },
   icon: {
     marginRight: theme.spacing(3)
   },
@@ -55,6 +66,13 @@ const useStyles = makeStyles((theme) => ({
       color: lightBlue[800],
       textDecoration: "none",
       transition: "0.3s ease-in"
+    }
+  },
+  mainList : {
+    display: "inline-block",
+    float: "right",
+    '& li': {
+      display: "inline"
     }
   },
   list: {
@@ -91,6 +109,30 @@ const NavBar = props => {
   const [state, setState] = useState(false);
   const classes = useStyles();
 
+  const MainNavListItemLink = props => {
+
+    const closeDrawer = () => {
+      setState(false);
+    };
+  
+    return (
+      <Link
+        activeClass="activeLink"
+        to={props.href}
+        spy={true}
+        hashSpy={true}
+        smooth={true}
+        offset={-55}
+        duration= {800}
+        onClick={closeDrawer}
+        className={classes.links}
+        {...props}
+      >
+        <ListItem {...props}/>
+      </Link>
+    );
+  }
+
   const ListItemLink = props => {
 
     const closeDrawer = () => {
@@ -102,9 +144,10 @@ const NavBar = props => {
         activeClass="active"
         to={props.href}
         spy={true}
+        hashSpy={true}
         smooth={true}
         offset={-70}
-        duration= {1000}
+        duration= {800}
         onClick={closeDrawer}
         className={classes.links}
         {...props}
@@ -122,23 +165,38 @@ const NavBar = props => {
     setState(open);
   };
   
-  const list = () => (
+  const mainNav = () => (
+    <List className={classes.mainList}>
+      <MainNavListItemLink href="aboutme" >
+        <Button className={classes.navLinks} >
+          About Me
+        </Button>
+      </MainNavListItemLink>
+      <MainNavListItemLink href="technologies" >
+        <Button className={classes.navLinks} >
+          Technologies
+        </Button>
+      </MainNavListItemLink>
+      <MainNavListItemLink href="projects" >
+        <Button className={classes.navLinks} >
+          Projects
+        </Button>
+      </MainNavListItemLink>
+      <MainNavListItemLink href="contactme" >
+        <Button className={classes.navLinks} >
+          Contact Me
+        </Button>
+      </MainNavListItemLink>
+    </List>
+  )
+
+  const mobileNav = () => (
     <div
       className={classes.list}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <List>
-        <ListItem>
-          <ListItemText>
-            <h2>
-              JMJ | Web Developer
-            </h2>
-          </ListItemText>
-        </ListItem>
-      </List>
-      <Divider />
       <List>
         <ListItemLink href="aboutme" >
           <ListItemIcon>
@@ -188,17 +246,24 @@ const NavBar = props => {
     <div className={classes.root}>
       <ElevationScroll {...props} >
         <AppBar className={classes.navBar}>
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              JMJ | Web Developer
-            </Typography>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-              <MenuIcon />
-            </IconButton>
-            <Drawer anchor="right" open={state} onClose={toggleDrawer(false)}>
-              {list()}
-            </Drawer>
-          </Toolbar>
+          <Container>
+            <Toolbar>
+              <Typography variant="h6" className={classes.title}>
+                JMJ | Web Developer
+              </Typography>
+              <Hidden only={[ 'xs', 'sm' ]}>
+                {mainNav()}  
+              </Hidden>
+              <Hidden only={[ 'md', 'lg' ]}>
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+                  <MenuIcon />
+                </IconButton>
+                <Drawer anchor="right" open={state} onClose={toggleDrawer(false)}>
+                  {mobileNav()}
+                </Drawer>  
+              </Hidden>
+            </Toolbar>
+          </Container>
         </AppBar>
       </ElevationScroll>
     </div>

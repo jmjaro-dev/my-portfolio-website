@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-// react-scroll
-import { Element } from "react-scroll";
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, Card, CardMedia, CardContent, Typography } from '@material-ui/core';
@@ -29,7 +27,8 @@ import technologies from '../animation/technologies';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingTop: "1em"
+    paddingTop: "2em",
+    paddingBottom: "3em"
   },
   headerContainer: {
     paddingTop: "2em !important",
@@ -100,11 +99,9 @@ const Technologies = () => {
       <Grid container spacing={3} direction="row" justify="center" alignItems="flex-start">
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer}>
-          <Element name="technologies">
-            <Typography variant="h4" className={classes.headerText} id="techHeader">
-              Technologies
-            </Typography>
-          </Element>
+          <Typography variant="h4" className={classes.headerText} id="techHeader">
+            Technologies
+          </Typography>
         </Grid>
         
         <Grid item xs={12} className={classes.underline} id="techLine">

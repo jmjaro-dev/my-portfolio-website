@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// react-scroll
-import { Element } from "react-scroll";
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, Card, CardActionArea, CardMedia, CardContent, Chip, Typography } from '@material-ui/core';
-import { lightBlue, grey }  from '@material-ui/core/colors';
+import { green, lightBlue, grey }  from '@material-ui/core/colors';
+import Skeleton from '@material-ui/lab/Skeleton';
 // Projects Info
 import { projectsData } from './projectsData';
 // Page Animations
@@ -17,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    paddingTop: "2em",
+    paddingBottom: "3em"
   },
   container: {
     maxWidth: 780
@@ -88,6 +89,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "0.9em",
     textAlign: "justify",
   },
+  statusContainer: {
+    float: "right",
+    paddingTop: "0.2em",
+  },
+  statusText: {
+    fontSize: "0.8em",
+    color: green[600]
+  },
+  indicator_online: {
+    display: "inline-block",
+    width: 10,
+    height: 10,
+    marginRight: "0.5em",
+    borderRadius: "50%",
+    backgroundColor: green[600]
+  },
   gutter: {
     height: "1em",
     marginBottom: "1em"
@@ -117,20 +134,17 @@ const Projects = () => {
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.container}>
         <ImgModal url={imgUrl} open={open} handleClose={handleClose} className={classes.imgModal} />
-
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer}>
-          <Element name="projects">
-            <Typography variant="h4" className={classes.headerText} id="projectsHeader">
-              Projects
-            </Typography>
-          </Element>
+          <Typography variant="h4" className={classes.headerText} id="projectsHeader">
+            Projects
+          </Typography>
         </Grid>
         
         <Grid item xs={12} className={classes.underline} id="projectsLine">
           <span className={classes.lineCenter}></span>
         </Grid>
-        
+          
         {/* Projects */}
         <Grid container spacing={2} >
           {projectsData.map(data => (
@@ -143,6 +157,13 @@ const Projects = () => {
                   <Typography variant="subtitle1" className={classes.subHeader}>
                     <a href={data.url} className={classes.links} target="_blank" rel="noopener noreferrer">
                       {data.title}
+                    </a>
+
+                    <a href={data.url} target="_blank" rel="noopener noreferrer" className={classes.statusText}>
+                      <Skeleton variant="rect" className={classes.statusContainer} >
+                        <span className={data.status === "Online" ? classes.indicator_online : classes.indicator_dev } />
+                        {data.status}
+                      </Skeleton>
                     </a>
                   </Typography>
                   <Typography variant="body1" className={classes.desc} gutterBottom>

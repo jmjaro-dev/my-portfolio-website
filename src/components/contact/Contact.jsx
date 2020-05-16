@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-// react-scroll
-import { Element } from "react-scroll";
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
@@ -18,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    paddingTop: "2em",
+    paddingBottom: "3em"
   },
   icon: {
     color: lightBlue[900],
@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "55px"
   },
+  contactCard: {
+    padding: "1em"
+  },
   contactInfo: {
     fontFamily: "Poppins",
     fontWeight: 500,
@@ -87,11 +90,9 @@ const Contact = () => {
       <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.container}>
         {/* Header */}
         <Grid item xs={12} className={classes.headerContainer} id="contactme">
-          <Element name="contactme">
-            <Typography variant="h4" className={classes.headerText} id="contactHeader">
-              Contact Me
-            </Typography>
-          </Element>
+          <Typography variant="h4" className={classes.headerText} id="contactHeader">
+            Contact Me
+          </Typography>
         </Grid>
         
         <Grid item xs={12} className={classes.underline} id="contactLine">
@@ -100,7 +101,7 @@ const Contact = () => {
         
         {/* Contact Details */}
         <Grid container direction="column" justify="center" alignItems="center">
-          <Grid item xs={12} id="contactCard">
+          <Grid item xs={12} id="contactCard" className={classes.contactCard}>
             <Box boxShadow={3} className={classes.contactInfo}>
               <List component="nav" aria-label="main mailbox folders">
                 <ListItem className="contacts">
