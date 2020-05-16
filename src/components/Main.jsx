@@ -36,9 +36,7 @@ const Main = () => {
         <Divider />
       </Container>
       <Element name="contactme">
-        <Container>
-          <Contact />
-        </Container>
+        <Contact />
         <Footer />
       </Element>  
     </div>
