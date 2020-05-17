@@ -26,6 +26,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InfoIcon from '@material-ui/icons/Info';
 import CodeIcon from '@material-ui/icons/Code';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import SchoolIcon from '@material-ui/icons/School';
 // material-ui/colors
 import { lightBlue, grey } from '@material-ui/core/colors';
 
@@ -182,6 +183,11 @@ const NavBar = props => {
           Projects
         </Button>
       </MainNavListItemLink>
+      <MainNavListItemLink href="trainings" >
+        <Button className={classes.navLinks} >
+          Trainings
+        </Button>
+      </MainNavListItemLink>
       <MainNavListItemLink href="contactme" >
         <Button className={classes.navLinks} >
           Contact Me
@@ -226,6 +232,16 @@ const NavBar = props => {
           </ListItemIcon>
           <ListItemText className={classes.links}>
             Projects
+          </ListItemText>
+        </ListItemLink>
+        <ListItemLink href="trainings" >
+          <ListItemIcon>
+            <Avatar className={classes.sideBarIcon}>
+              <SchoolIcon />
+            </Avatar>
+          </ListItemIcon>
+          <ListItemText className={classes.links}>
+            Trainings
           </ListItemText>
         </ListItemLink>
         <ListItemLink href="contactme" >

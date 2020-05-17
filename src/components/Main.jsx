@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import About from './about/About';
 import Technologies from './technologies/Technologies';
 import Projects from './projects/Projects';
+import Trainings from './trainings/Trainings';
 import Contact from './contact/Contact';
 import Footer from './layout/Footer';
 // react-scroll
@@ -32,6 +33,10 @@ const Main = () => {
         <Divider />
         <Element name="projects">
           <Projects />
+        </Element>
+        <Divider />
+        <Element name="trainings">
+          <Trainings />
         </Element>
         <Divider />
       </Container>
