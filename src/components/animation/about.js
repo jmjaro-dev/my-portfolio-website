@@ -66,6 +66,7 @@ const about = () => {
   sr.reveal("#mypic", photo);
   sr.reveal("#introTitle", title);
   sr.reveal("#introDesc", desc);
+  sr.reveal("#cvButton", desc);
 }
 
 export default about;

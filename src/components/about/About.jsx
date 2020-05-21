@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Card, Box, CardMedia, Typography } from '@material-ui/core';
+import { Box, Button, Card, CardMedia, Container, Grid, Typography } from '@material-ui/core';
 import { lightBlue, grey }  from '@material-ui/core/colors';
 // image
 import photo from '../../assets/img/photo.jpg';
+// CV
+import CV from '../../assets/docs/JAROPOJOP-JEROME-MICO.docx'
 // Page Animations
 import about from '../animation/about';
+// download icon
+import SaveAltIcon from '@material-ui/icons/SaveAlt';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,6 +89,14 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "1em",
     lineHeight: "1.8em",
     textAlign: "justify"
+  },
+  downloadCV: {
+    color: lightBlue[900],
+    borderColor: lightBlue[900],
+    marginTop: "1.5em",
+    '&:hover': {
+      color: lightBlue[900]// backgroundColor: grey[800]
+    }
   }
 }));
 
@@ -133,9 +145,18 @@ const About = () => {
             <Typography variant="subtitle1" gutterBottom className={classes.introTitle} id="introTitle">
               Web Developer
             </Typography>
-            <Typography variant="body1" className={classes.introDescription} id="introDesc">
+            <Typography variant="body1" className={classes.introDescription} id="introDesc" gutterBottom>
             I'm a self-taught Web Developer. I can do both front-end & back-end development. I'm goal-oriented and self-motivated seeking for a position that utilizes my knowledge and skills in an environment that encourages innovative thinking and professional growth.
             </Typography>
+            <Button  
+              id="cvButton"
+              className={classes.downloadCV}
+              variant="outlined"
+              startIcon={<SaveAltIcon />}
+              href={CV}
+            >
+              Resume / CV
+            </Button>
           </Box>
         </Grid>
       </Grid>
