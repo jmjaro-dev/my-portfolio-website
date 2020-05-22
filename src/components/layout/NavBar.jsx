@@ -10,6 +10,7 @@ import {
   Button,
   Container, 
   Drawer,
+  Divider,
   Hidden,
   IconButton, 
   List,
@@ -22,6 +23,7 @@ import {
 } from '@material-ui/core';
 // material-ui/icons
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InfoIcon from '@material-ui/icons/Info';
 import CodeIcon from '@material-ui/icons/Code';
@@ -29,25 +31,28 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import SchoolIcon from '@material-ui/icons/School';
 // material-ui/colors
 import { lightBlue, grey } from '@material-ui/core/colors';
+// brand-logo
+import Logo from '../../assets/logos/brand-logo.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    color: lightBlue[900]
   },
   title: {
     flexGrow: 1,
+    padding: "0.5em 0 0.3em 0"
   },
   navBar: {
-    backgroundColor: lightBlue[900]
+    backgroundColor: "#fff"
   },
   navLinks: {
-    color: "#fff",
+    color: "#000",
     textDecoration: "none",
     "&:hover": {
-      color: lightBlue["A200"],
+      color: lightBlue[900],
       textDecoration: "none",
       transition: "0.3s ease-in"
     }
@@ -77,16 +82,24 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   list: {
-    width: 320,
+    width: "100vw",
   },
   appSideBarIcon: {
     marginRight: theme.spacing(3),
     color: lightBlue[900]
   },
+  sideBarLogo: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  },
+  sideBarCloseIcon: {
+    position: "absolute",
+    right: 10
+  },
   sideBarIcon: {
     backgroundColor: lightBlue[800],
-    color: "#fff"
-    
+    color: "#fff" 
   },
   sideBarLink: {
     color: lightBlue[900]
@@ -204,6 +217,13 @@ const NavBar = props => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
+        <ListItemLink className={classes.sideBarLogo}>
+          <img src={Logo} alt="Jerome Mico Jaropojop | Web Developer" height="55px" />
+          <IconButton className={classes.sideBarCloseIcon}>
+            <CloseIcon />
+          </IconButton>
+        </ListItemLink>
+        <Divider/>
         <ListItemLink href="aboutme" >
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
@@ -265,13 +285,13 @@ const NavBar = props => {
           <Container>
             <Toolbar>
               <Typography variant="h6" className={classes.title}>
-                JMJ | Web Developer
+                <img src={Logo} alt="Jerome Mico Jaropojop | Web Developer" height="55px" />
               </Typography>
               <Hidden only={[ 'xs', 'sm' ]}>
                 {mainNav()}  
               </Hidden>
               <Hidden only={[ 'md', 'lg' ]}>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+                <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
                   <MenuIcon />
                 </IconButton>
                 <Drawer anchor="right" open={state} onClose={toggleDrawer(false)}>

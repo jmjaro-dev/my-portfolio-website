@@ -10,7 +10,7 @@ body {
 }
 
 a.activeLink > li > button {
-  color: #80d8ff;
+  color: #01579b;
 }
 
 a.active > li {
