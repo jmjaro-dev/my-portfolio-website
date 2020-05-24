@@ -1,24 +1,7 @@
 import sr from './scrollReveal';
 
 const technologies = () => {
-  // const random = () => {
-  //   let x = Math.floor(Math.random() * 4) + 1;
-  //   let origin;
-
-  //   switch(x) {
-  //     case 1:
-  //       return origin = "top"
-  //     case 2:
-  //       return origin = "left"
-  //     case 3:
-  //       return origin = "bottom"
-  //     case 4:
-  //       return origin = "right"
-  //     default:
-  //       return origin; 
-  //   }
-  // };
-
+  
   // animations
   const headers = {
     opacity: 0,
@@ -31,7 +14,7 @@ const technologies = () => {
 
   const subHeader = {
     opacity: 0,
-    distance: "30px",
+    distance: "50px",
     origin: "top",
     easing: "ease-in-out",
     duration: 800,
@@ -56,8 +39,11 @@ const technologies = () => {
   sr.reveal("#CSSHeader", subHeader);
   sr.reveal("#stackHeader", subHeader);
   sr.reveal("#frontEndHeader", subHeader);
-  sr.reveal("#cssFrameworkHeader", subHeader);
   sr.reveal("#backEndHeader", subHeader);
+  sr.reveal("#cssFrameworkHeader", subHeader);
+  sr.reveal("#APIClientsHeader", subHeader);
+  sr.reveal("#UIUXHeader", subHeader);
+  sr.reveal("#codeEditorHeader", subHeader);
   sr.reveal(".items", items);
 
 }

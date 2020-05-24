@@ -1,6 +1,7 @@
 import sr from './scrollReveal';
 
 const about = () => {
+  
   // animations
   const headers = {
     opacity: 0,

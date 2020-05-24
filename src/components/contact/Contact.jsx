@@ -125,7 +125,7 @@ const Contact = () => {
                     <CallIcon/>
                   </ListItemIcon>
                   <ListItemText> 
-                    <span className={classes.contactDetail}>+63929-308-7991</span> {' '} 
+                    <span className={classes.contactDetail}>+63995-589-5085</span> {' '} 
                     <span className={classes.mobileNetwork}>[SMART]</span>
                   </ListItemText>
                 </ListItem>

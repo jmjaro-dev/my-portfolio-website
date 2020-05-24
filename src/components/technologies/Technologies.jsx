@@ -20,6 +20,12 @@ import MUILogo from '../../assets/logos/material-ui-logo.png';
 import MaterializeCSSLogo from '../../assets/logos/materializecss-logo.png';
 import TailwindCSSLogo from '../../assets/logos/tailwind-logo.png';
 import BootstrapLogo from '../../assets/logos/bootstrap-logo.png';
+import InsomniaLogo from '../../assets/logos/insomnia-logo.png';
+import PostmanLogo from '../../assets/logos/postman-logo.jpeg';
+import FigmaLogo from '../../assets/logos/figma-logo.png';
+import IllustratorLogo from '../../assets/logos/adobe-illustrator-logo.png';
+import VSCodeLogo from '../../assets/logos/vs-code-logo.png';
+
 
 // Page Animations
 import technologies from '../animation/technologies';
@@ -66,10 +72,13 @@ const useStyles = makeStyles((theme) => ({
     color: grey[700]
   },
   img: {
+    display: "flex",
     margin: "0 auto",
     padding: "1em 1em",
     width: 130,
-    height: 130
+    height: 130,
+    justifyContent: "center",
+    aligntItems: "center"
   },
   img1: {
     margin: "0 auto",
@@ -330,6 +339,95 @@ const Technologies = () => {
             </Card>
           </Box>
         </Grid> 
+        
+        {/* REST API Clients */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="APIClientsHeader">
+            API Clients
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={InsomniaLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Insomnia
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+        
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={PostmanLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Postman
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+        
+        {/* UI/UX Design Tools */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="UIUXHeader">
+            UI/UX Design Tools
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia className={classes.img}> 
+                <img src={FigmaLogo} height="100px" alt="Figma Logo" style={{ padding: "0 auto"}} />
+              </CardMedia>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Figma
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+        
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={IllustratorLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Adobe Illustrator
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+        
+        {/* Code Editor */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="codeEditorHeader">
+            Code Editor
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={VSCodeLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  VS Code
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
 
         {/* Tech Stack */}
         <Grid item xs={12}>

@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Box, Card, CardActionArea, CardMedia, CardContent, Chip, Typography } from '@material-ui/core';
+import { 
+  Box, 
+  Container, 
+  Card, 
+  CardActionArea, 
+  CardMedia, 
+  CardContent, 
+  Chip,
+  Divider, 
+  Grid, 
+  Typography 
+} from '@material-ui/core';
 import { green, lightBlue, grey }  from '@material-ui/core/colors';
 import Skeleton from '@material-ui/lab/Skeleton';
 // Projects Info
@@ -10,6 +21,8 @@ import { projectsData } from './projectsData';
 import projects from '../animation/projects';
 // imgModal
 import ImgModal from '../layout/ImgModal'; 
+// Github Icon
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,10 +97,29 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: lightBlue[900],
     margin: theme.spacing(0.5),
   },
+  repository: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "1em auto"
+  },
+  githubIcon: {
+    marginRight: "0.5em"
+  },
+  repositoryLink: {
+    fontFamily: "Poppins",
+    fontSize: "0.8em",
+    color: "#333",
+    textDecoration: "none",
+    "&:hover": {
+      color: lightBlue[900]
+    }
+  },
   desc: {
     color: grey[700],
     fontSize: "0.9em",
     textAlign: "justify",
+    marginBottom: "1em"
   },
   statusContainer: {
     float: "right",
@@ -166,9 +198,20 @@ const Projects = () => {
                       </Skeleton>
                     </a>
                   </Typography>
+
                   <Typography variant="body1" className={classes.desc} gutterBottom>
                     {data.desc}
                   </Typography>
+
+                  <Divider />
+
+                  <Typography variant="body1" className={classes.repository}>
+                    <GitHubIcon fontSize="small" className={classes.githubIcon} /> 
+                    <a href={data.repository} className={classes.repositoryLink} target="_blank" rel="noopener noreferrer">Repository Link Here</a>
+                  </Typography>
+                  
+                  <Divider />
+                  
                   <Box component="ul" className={classes.chipList}>
                     {data.technologies.map((tech, index) => {
                       return (
