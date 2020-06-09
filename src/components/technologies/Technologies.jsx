@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, Card, CardMedia, CardContent, Typography } from '@material-ui/core';
@@ -25,10 +25,6 @@ import PostmanLogo from '../../assets/logos/postman-logo.jpeg';
 import FigmaLogo from '../../assets/logos/figma-logo.png';
 import IllustratorLogo from '../../assets/logos/adobe-illustrator-logo.png';
 import VSCodeLogo from '../../assets/logos/vs-code-logo.png';
-
-
-// Page Animations
-import technologies from '../animation/technologies';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,10 +81,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "1em 1em",
     width: 100,
     height: 130
-  }, 
-  hiddenAnchor: {
-    position: "relative",
-    top: "-120px"
   },
   gutter: {
     height: "1em",
@@ -98,10 +90,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Technologies = () => {
   const classes = useStyles();
-
-  useEffect(() => {
-    technologies();
-  });
 
   return (
     <Container fixed className={classes.root}>

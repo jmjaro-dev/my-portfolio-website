@@ -191,14 +191,14 @@ const NavBar = props => {
           Technologies
         </Button>
       </MainNavListItemLink>
-      <MainNavListItemLink href="projects" >
-        <Button className={classes.navLinks} >
-          Projects
-        </Button>
-      </MainNavListItemLink>
       <MainNavListItemLink href="trainings" >
         <Button className={classes.navLinks} >
           Trainings
+        </Button>
+      </MainNavListItemLink>
+      <MainNavListItemLink href="projects" >
+        <Button className={classes.navLinks} >
+          Projects
         </Button>
       </MainNavListItemLink>
       <MainNavListItemLink href="contactme" >
@@ -244,16 +244,6 @@ const NavBar = props => {
             Technologies
           </ListItemText>
         </ListItemLink>
-        <ListItemLink href="projects" >
-          <ListItemIcon>
-            <Avatar className={classes.sideBarIcon}>
-              <DashboardIcon />
-            </Avatar>
-          </ListItemIcon>
-          <ListItemText className={classes.links}>
-            Projects
-          </ListItemText>
-        </ListItemLink>
         <ListItemLink href="trainings" >
           <ListItemIcon>
             <Avatar className={classes.sideBarIcon}>
@@ -262,6 +252,16 @@ const NavBar = props => {
           </ListItemIcon>
           <ListItemText className={classes.links}>
             Trainings
+          </ListItemText>
+        </ListItemLink>
+        <ListItemLink href="projects" >
+          <ListItemIcon>
+            <Avatar className={classes.sideBarIcon}>
+              <DashboardIcon />
+            </Avatar>
+          </ListItemIcon>
+          <ListItemText className={classes.links}>
+            Projects
           </ListItemText>
         </ListItemLink>
         <ListItemLink href="contactme" >

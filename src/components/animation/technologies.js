@@ -15,10 +15,10 @@ const technologies = () => {
   const subHeader = {
     opacity: 0,
     distance: "50px",
-    origin: "top",
+    origin: "bottom",
     easing: "ease-in-out",
-    duration: 800,
-    delay: 300,
+    duration: 600,
+    delay: 200,
     reset: true
   }
   
@@ -27,9 +27,9 @@ const technologies = () => {
     distance: "50px",
     origin: "bottom",
     easing: "ease-in-out",
-    duration: 800,
+    duration: 600,
     delay: 300,
-    interval: 400,
+    interval: 300,
     reset: true
   }
 

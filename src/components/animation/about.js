@@ -27,7 +27,7 @@ const about = () => {
     distance: "50px",
     origin: "right",
     easing: "ease-in-out",
-    duration: 800,
+    duration: 600,
     delay: 800,
     reset: true
   }
@@ -56,7 +56,16 @@ const about = () => {
     distance: "50px",
     origin: "right",
     duration: 800,
-    delay: 1800,
+    delay: 1700,
+    reset: true
+  }
+
+  const resume = {
+    opacity: 0,
+    distance: "50px",
+    origin: "right",
+    duration: 600,
+    delay: 1700,
     reset: true
   }
 
@@ -67,7 +76,7 @@ const about = () => {
   sr.reveal("#mypic", photo);
   sr.reveal("#introTitle", title);
   sr.reveal("#introDesc", desc);
-  sr.reveal("#cvButton", desc);
+  sr.reveal("#cvButton", resume);
 }
 
 export default about;

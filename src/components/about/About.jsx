@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Card, CardMedia, Container, Grid, Typography } from '@material-ui/core';
@@ -7,8 +7,6 @@ import { lightBlue, grey }  from '@material-ui/core/colors';
 import photo from '../../assets/img/photo.jpg';
 // CV
 import CV from '../../assets/docs/JAROPOJOP-JEROME-MICO.docx'
-// Page Animations
-import about from '../animation/about';
 // download icon
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 
@@ -95,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: lightBlue[900],
     marginTop: "1.5em",
     '&:hover': {
-      color: lightBlue[900]// backgroundColor: grey[800]
+      color: lightBlue[900]
     }
   }
 }));
@@ -103,10 +101,6 @@ const useStyles = makeStyles((theme) => ({
 const About = () => {
   const classes = useStyles();
 
-  useEffect(() => {
-    about();
-  }, []);
-  
   return (
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="flex-start">

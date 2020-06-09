@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // Components
@@ -10,6 +10,12 @@ import Contact from './contact/Contact';
 import Footer from './layout/Footer';
 // react-scroll
 import { Element } from "react-scroll";
+// Page Animations
+import about from './animation/about';
+import technologies from './animation/technologies';
+import trainings from './animation/trainings';
+import projects from './animation/projects';
+import contact from './animation/contact';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +24,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Main = () => {
+  useEffect(() => {
+    about();
+    technologies();
+    trainings();
+    projects();
+    contact();
+  }, []);
+
   const classes = useStyles();
 
   return (
@@ -31,12 +45,12 @@ const Main = () => {
           <Technologies />
         </Element>
         <Divider />
-        <Element name="projects">
-          <Projects />
-        </Element>
         <Divider />
         <Element name="trainings">
           <Trainings />
+        </Element>
+        <Element name="projects">
+          <Projects />
         </Element>
         <Divider />
       </Container>

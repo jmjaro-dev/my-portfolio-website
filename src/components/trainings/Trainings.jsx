@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Container, Divider, Grid, GridList, GridListTile, GridListTileBar, CardActionArea, CardMedia, CardContent, Typography } from '@material-ui/core';
@@ -8,8 +8,6 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 // Trainings
 import { trainingsData } from './trainingsData';
-// Page Animations
-import trainings from '../animation/trainings';
 // imgModal
 import ImgModal from '../layout/ImgModal'; 
 
@@ -129,10 +127,6 @@ const Trainings = () => {
   const [open, setOpen] = useState(false);
   const [imgUrl, setImageUrl] = useState(null);
   const details = ["Start Date", "End Date", "Hours Rendered"];
-
-  useEffect(() => {
-    trainings();
-  });
   
   const handleOpen = e => {
     e.preventDefault();
@@ -205,7 +199,7 @@ const Trainings = () => {
               <CardContent className="certAwards">
                 <Typography variant="subtitle2" className={classes.subTitle}>
                   <EmojiEventsIcon className={classes.awardsIcon} />
-                  <p>Awards</p>
+                  <p>Special Awards</p>
                 </Typography>
                 <Box className={classes.awardsContainer}>
                   <GridList  cellHeight={190} className={classes.gridList}>

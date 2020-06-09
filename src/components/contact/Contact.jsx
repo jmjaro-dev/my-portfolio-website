@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
@@ -8,8 +8,6 @@ import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import CallIcon from '@material-ui/icons/Call';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-// Page Animations
-import contact from '../animation/contact';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,10 +79,6 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
   const classes = useStyles();
 
-  useEffect(() => {
-    contact();
-  });
-  
   return (
     <Container fixed className={classes.root}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.container}>

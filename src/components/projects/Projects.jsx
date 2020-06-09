@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import { 
@@ -17,8 +17,6 @@ import { green, lightBlue, grey }  from '@material-ui/core/colors';
 import Skeleton from '@material-ui/lab/Skeleton';
 // Projects Info
 import { projectsData } from './projectsData';
-// Page Animations
-import projects from '../animation/projects';
 // imgModal
 import ImgModal from '../layout/ImgModal'; 
 // Github Icon
@@ -147,10 +145,6 @@ const Projects = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [imgUrl, setImageUrl] = useState(null);
-
-  useEffect(() => {
-    projects();
-  });
   
   const handleOpen = e => {
     e.preventDefault();

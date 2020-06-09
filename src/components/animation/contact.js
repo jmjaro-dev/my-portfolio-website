@@ -17,7 +17,7 @@ const contact = () => {
     distance: "50px",
     origin: "bottom",
     easing: "ease-in-out",
-    delay: 300,
+    delay: 200,
     duration: 500,
     reset: true
   }
@@ -27,9 +27,9 @@ const contact = () => {
     distance: "50px",
     origin: "bottom",
     easing: "ease-in-out",
-    duration: 800,
-    delay: 500,
-    interval: 300,
+    duration: 600,
+    delay: 300,
+    interval: 200,
     reset: true
   }
 
