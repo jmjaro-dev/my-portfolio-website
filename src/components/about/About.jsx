@@ -140,7 +140,7 @@ const About = () => {
               Web Developer
             </Typography>
             <Typography variant="body1" className={classes.introDescription} id="introDesc" gutterBottom>
-            I'm a self-taught Web Developer. I can do both front-end &amp; back-end development. I'm a fast-learner, goal-oriented and self-motivated indiviual that is seeking for a position that will utilize my knowledge and skills in an environment that encourages innovative thinking and professional growth.
+            A Web Developer that is comfortable with front-end or back-end development. I'm a fast-learner, goal-oriented, and self-motivated indiviual that is seeking for a position that will utilize my knowledge and skills in an environment that encourages innovative thinking and professional growth.
             </Typography>
             <Button  
               id="cvButton"

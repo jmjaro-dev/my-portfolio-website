@@ -7,6 +7,7 @@ import { lightBlue, grey }  from '@material-ui/core/colors';
 import HTML5Logo from '../../assets/logos/html5-logo.png';
 import CSSLogo from '../../assets/logos/css3-logo.png';
 import JSLogo from '../../assets/logos/javascript-logo.png';
+import TSLogo from '../../assets/logos/typescript-logo.png';
 import PHPLogo from '../../assets/logos/php-logo.png';
 import SASSLogo from '../../assets/logos/sass-logo.png';
 import MongoDBLogo from '../../assets/logos/mongodb.png';
@@ -15,6 +16,8 @@ import MySQLLogo from '../../assets/logos/mysql-logo.png';
 import PostgreSQLLogo from '../../assets/logos/postgresql-logo.png';
 import ExpressLogo from '../../assets/logos/express-logo.png';
 import ReactJSLogo from '../../assets/logos/react-logo.png';
+import AngularLogo from '../../assets/logos/angular-logo.png';
+import NestJSLogo from '../../assets/logos/nestjs-logo.png';
 import NodeJSLogo from '../../assets/logos/node-logo.png';
 import MUILogo from '../../assets/logos/material-ui-logo.png';
 import MaterializeCSSLogo from '../../assets/logos/materializecss-logo.png';
@@ -23,7 +26,7 @@ import BootstrapLogo from '../../assets/logos/bootstrap-logo.png';
 import InsomniaLogo from '../../assets/logos/insomnia-logo.png';
 import PostmanLogo from '../../assets/logos/postman-logo.jpeg';
 import FigmaLogo from '../../assets/logos/figma-logo.png';
-import IllustratorLogo from '../../assets/logos/adobe-illustrator-logo.png';
+import XDLogo from '../../assets/logos/adobe-xd-logo.png';
 import VSCodeLogo from '../../assets/logos/vs-code-logo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -154,6 +157,19 @@ const Technologies = () => {
         <Grid item xs={6} sm={4} md={2}>
           <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={TSLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  TypeScript
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid> 
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
               <CardMedia component="img" image={PHPLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
                 <Typography variant="subtitle1">
@@ -187,7 +203,7 @@ const Technologies = () => {
         {/* Front-end Frameworks or Libraries */}
         <Grid item xs={12}>
           <Typography variant="h6" className={classes.subHeader} id="frontEndHeader">
-            Front-end Framework/Library
+            Front-end Frameworks/Library
           </Typography>
         </Grid>
 
@@ -198,6 +214,19 @@ const Technologies = () => {
               <CardContent className={classes.logoLabel}>
                 <Typography variant="subtitle1">
                   React JS
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid> 
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={AngularLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  Angular
                 </Typography>
               </CardContent>
             </Card>
@@ -264,6 +293,41 @@ const Technologies = () => {
             </Card>
           </Box>
         </Grid>
+
+        {/* Front-end Frameworks or Libraries */}
+        <Grid item xs={12}>
+          <Typography variant="h6" className={classes.subHeader} id="frontEndHeader">
+            Back-end Frameworks/Library
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia className={classes.img}> 
+                <img src={ExpressLogo} height="21px" alt="Express Logo" style={{ marginTop: "45px" }} />
+              </CardMedia>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  ExpressJS
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid> 
+
+        <Grid item xs={6} sm={4} md={2}>
+          <Box boxShadow={3} className="items">
+            <Card className={classes.logoContainer}>
+              <CardMedia component="img" image={NestJSLogo} className={classes.img}/>
+              <CardContent className={classes.logoLabel}>
+                <Typography variant="subtitle1">
+                  NextJS
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid> 
 
         {/* CSS Frameworks */}
         <Grid item xs={12}>
@@ -387,10 +451,10 @@ const Technologies = () => {
         <Grid item xs={6} sm={4} md={2}>
           <Box boxShadow={3} className="items">
             <Card className={classes.logoContainer}>
-              <CardMedia component="img" image={IllustratorLogo} className={classes.img}/>
+              <CardMedia component="img" image={XDLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
                 <Typography variant="subtitle1">
-                  Adobe Illustrator
+                  Adobe XD
                 </Typography>
               </CardContent>
             </Card>

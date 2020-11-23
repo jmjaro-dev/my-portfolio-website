@@ -95,7 +95,8 @@ const useStyles = makeStyles((theme) => ({
   },
   certificateGridList: {
     maxWidth: 600,
-    height: "auto"
+    height: "auto",
+    overflow: 'hidden'
   },
   awardsContainer: {
     width: "100%",
