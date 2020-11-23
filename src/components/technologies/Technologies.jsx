@@ -322,7 +322,7 @@ const Technologies = () => {
               <CardMedia component="img" image={NestJSLogo} className={classes.img}/>
               <CardContent className={classes.logoLabel}>
                 <Typography variant="subtitle1">
-                  NextJS
+                  NestJS
                 </Typography>
               </CardContent>
             </Card>
